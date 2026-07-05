@@ -4,16 +4,14 @@
   z-index: 100;
   background: var(--black);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 28px;
 }
 
 .emblem {
   position: relative;
-  width: 168px;
-  height: 168px;
+  width: min(420px, 78vw);
+  aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,39 +24,9 @@
   height: 100%;
 }
 
-.mark {
-  width: 120px;
+.logo {
+  width: 68%;
   height: auto;
   opacity: 0;
-  filter: drop-shadow(0 4px 18px rgba(201, 162, 75, 0.25));
-  /* optical centering: the camera lens sits 1.66% left / 6.6% down
-     of the artwork's bounding box — shift so the LENS is the true center */
-  translate: 1.66% -6.6%;
-}
-
-.wordmark {
-  display: flex;
-  gap: 0.08em;
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 700;
-  letter-spacing: 0.32em;
-  color: var(--cream);
-}
-
-.wordmark span {
-  display: inline-block;
-  transform: translateY(120%);
-  opacity: 0;
-}
-
-.wordmark .x {
-  color: var(--gold);
-}
-
-.tagline {
-  font-size: 12px;
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
-  color: var(--grey);
-  opacity: 0;
+  filter: drop-shadow(0 6px 24px rgba(201, 162, 75, 0.28));
 }

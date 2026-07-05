@@ -30,19 +30,13 @@ export default function Navbar() {
       <div className={styles.inner}>
         <Link href="/" className={styles.brand} aria-label="Lexma home">
           <Image
-            src="/brand/lexma-mark.png"
-            alt="Lexma camera logo"
-            width={64}
-            height={33}
+            src="/brand/lexma-logo-dark.png"
+            alt="Lexma Real Estate Photography"
+            width={100}
+            height={70}
             className={styles.mark}
             priority
           />
-          <span className={styles.brandText}>
-            <span className={styles.wordmark}>
-              LE<em>X</em>MA
-            </span>
-            <span className={styles.sub}>{t.nav.brandSub}</span>
-          </span>
         </Link>
 
         <div className={styles.links}>
