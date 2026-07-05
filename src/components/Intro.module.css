@@ -1,0 +1,37 @@
+.intro {
+  background: var(--black);
+  padding: clamp(120px, 20vh, 220px) 0;
+}
+
+.statement {
+  font-size: clamp(30px, 4.6vw, 64px);
+  max-width: 1100px;
+  line-height: 1.25;
+}
+
+.statement :global(.word) {
+  color: rgba(245, 239, 230, 0.16);
+}
+
+.statement :global(.gold) {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 42px;
+}
+
+.kicker::before {
+  content: "";
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+}

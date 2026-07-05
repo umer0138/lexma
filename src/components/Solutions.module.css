@@ -1,0 +1,468 @@
+/* ---- slash transition + light digital services section ---- */
+.wrap {
+  position: relative;
+  background: var(--cream);
+  color: var(--black);
+  overflow: hidden;
+}
+
+.slash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  transform: translateY(-99%);
+  pointer-events: none;
+}
+
+.intro {
+  padding: clamp(100px, 16vh, 190px) 0 30px;
+  text-align: center;
+}
+
+.brandLogo {
+  width: clamp(240px, 30vw, 400px);
+  height: auto;
+  margin: 0 auto 34px;
+}
+
+.introKicker {
+  font-size: 12px;
+  letter-spacing: 0.44em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 20px;
+}
+
+.introTitle {
+  font-size: clamp(34px, 5vw, 72px);
+  color: var(--black);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.introTitle em {
+  font-style: italic;
+  color: var(--gold-deep);
+}
+
+.introSub {
+  max-width: 620px;
+  margin: 22px auto 0;
+  color: rgba(26, 25, 23, 0.66);
+  font-size: clamp(15px, 1.5vw, 18px);
+}
+
+/* ---- services list + orb rail ---- */
+.list {
+  padding: clamp(50px, 8vh, 100px) 0 clamp(90px, 14vh, 160px);
+}
+
+.listGrid {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 10px;
+}
+
+.rail {
+  position: relative;
+}
+
+.railLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(154, 122, 50, 0.35) 6%,
+    rgba(154, 122, 50, 0.35) 94%,
+    transparent
+  );
+}
+
+.railProgress {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  margin-left: -0.5px;
+  height: 100%;
+  background: var(--gold);
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+/* --- the golden lens orb --- */
+.orb {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 58px;
+  height: 58px;
+  margin: -29px 0 0 -29px;
+  will-change: transform;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.orbBody {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, #fff7e0 0%, #e8c06f 22%, #c9a24b 45%, #8a6a28 72%, #4d3a12 100%);
+  box-shadow:
+    inset -6px -8px 16px rgba(58, 42, 8, 0.55),
+    inset 4px 6px 10px rgba(255, 244, 214, 0.5),
+    0 18px 34px rgba(154, 122, 50, 0.35);
+  animation: orbFloat 3.4s ease-in-out infinite;
+}
+
+.orbLens {
+  position: absolute;
+  inset: 17px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #3a3a3a 0%, #101010 55%, #000 100%);
+  box-shadow:
+    inset 0 0 0 2px rgba(232, 192, 111, 0.9),
+    inset 0 0 12px rgba(0, 0, 0, 0.9);
+}
+
+.orbLens::after {
+  content: "";
+  position: absolute;
+  left: 22%;
+  top: 18%;
+  width: 26%;
+  height: 26%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.85), transparent 70%);
+}
+
+.orbRing {
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 1px dashed rgba(201, 162, 75, 0.55);
+  animation: orbSpin 9s linear infinite;
+}
+
+@keyframes orbSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbFloat {
+  0%,
+  100% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+/* docked pulse */
+.orbPulse {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 162, 75, 0.5);
+  opacity: 0;
+}
+
+.orbDocked .orbPulse {
+  animation: dockPulse 1.6s ease-out infinite;
+}
+
+@keyframes dockPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+.row {
+  border-top: 1px solid rgba(26, 25, 23, 0.14);
+  transition: background 0.35s;
+}
+
+.row:last-child {
+  border-bottom: 1px solid rgba(26, 25, 23, 0.14);
+}
+
+.rowHead {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 26px 10px;
+  text-align: left;
+  color: inherit;
+}
+
+.num {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.6vw, 32px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.chev {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(26, 25, 23, 0.25);
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  line-height: 1;
+  transition: transform 0.4s var(--ease-out-expo), background 0.3s, color 0.3s;
+}
+
+.rowOpen .chev {
+  transform: rotate(45deg);
+  background: var(--black);
+  color: var(--cream);
+  border-color: var(--black);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .row:hover {
+    background: rgba(201, 162, 75, 0.07);
+  }
+}
+
+.body {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+}
+
+.bodyInner {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 20px;
+  padding: 0 10px 30px;
+}
+
+.desc {
+  grid-column: 2;
+  max-width: 720px;
+  color: rgba(26, 25, 23, 0.7);
+  font-size: 16px;
+}
+
+.quoteBtn {
+  margin-top: 18px;
+}
+
+/* ---- cursor-following hover preview card ---- */
+.hoverCard {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 40;
+  width: 300px;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 30px 70px rgba(26, 25, 23, 0.35);
+  will-change: transform;
+}
+
+.hoverCardArt,
+.hoverCardArt svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hoverCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(201, 162, 75, 0.35);
+  pointer-events: none;
+}
+
+.hoverCardLabel {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  z-index: 2;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .hoverCard {
+    display: none;
+  }
+}
+
+/* ---- 3D golden gyroscope drifting behind the whole section ---- */
+.bgStage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  margin-bottom: -100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.gyro {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(280px, 40vw, 620px);
+  aspect-ratio: 1;
+  margin: 0;
+  transform-style: preserve-3d;
+  perspective: 900px;
+  will-change: transform;
+  opacity: 0;
+}
+
+.gyroCore {
+  position: absolute;
+  inset: 30%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 38% 32%,
+    rgba(232, 192, 111, 0.5),
+    rgba(201, 162, 75, 0.22) 55%,
+    transparent 75%
+  );
+  filter: blur(6px);
+}
+
+.gyroRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(154, 122, 50, 0.4);
+  transform-style: preserve-3d;
+}
+
+.gyroRing:nth-child(2) {
+  animation: spinA 14s linear infinite;
+}
+
+.gyroRing:nth-child(3) {
+  inset: 8%;
+  border-color: rgba(201, 162, 75, 0.5);
+  border-style: dashed;
+  animation: spinB 18s linear infinite;
+}
+
+.gyroRing:nth-child(4) {
+  inset: 17%;
+  border-width: 1px;
+  border-color: rgba(154, 122, 50, 0.35);
+  animation: spinC 11s linear infinite;
+}
+
+@keyframes spinA {
+  from {
+    transform: rotate3d(1, 0.4, 0, 65deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotate3d(1, 0.4, 0, 65deg) rotateZ(360deg);
+  }
+}
+
+@keyframes spinB {
+  from {
+    transform: rotate3d(0.2, 1, 0, 72deg) rotateZ(360deg);
+  }
+  to {
+    transform: rotate3d(0.2, 1, 0, 72deg) rotateZ(0deg);
+  }
+}
+
+@keyframes spinC {
+  from {
+    transform: rotate3d(1, -0.6, 0.2, 58deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotate3d(1, -0.6, 0.2, 58deg) rotateZ(360deg);
+  }
+}
+
+/* content sits above the gyro */
+.intro,
+.list {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 700px) {
+  .gyro {
+    width: 74vw;
+  }
+}
+
+/* active row highlight while orb is docked */
+.rowActive {
+  background: rgba(201, 162, 75, 0.08);
+}
+
+.rowActive .num {
+  color: var(--gold);
+  text-shadow: 0 0 14px rgba(201, 162, 75, 0.55);
+}
+
+.rowActive .name {
+  color: var(--gold-deep);
+}
+
+@media (max-width: 700px) {
+  .listGrid {
+    grid-template-columns: 34px 1fr;
+  }
+  .orb {
+    width: 34px;
+    height: 34px;
+    margin: -17px 0 0 -17px;
+  }
+  .orbLens {
+    inset: 10px;
+  }
+  .orbRing {
+    inset: -5px;
+  }
+  .rowHead {
+    grid-template-columns: 44px 1fr auto;
+  }
+  .bodyInner {
+    grid-template-columns: 1fr;
+  }
+  .desc {
+    grid-column: 1;
+  }
+}

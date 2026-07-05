@@ -1,0 +1,177 @@
+.hero {
+  position: relative;
+  height: 320vh;
+  background: var(--black);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.imageWrap {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.imageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* cinematic vignette + grade over the photo */
+.grade {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 42%, rgba(10, 10, 10, 0.55) 100%),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.35) 0%, transparent 30%, transparent 70%, rgba(10, 10, 10, 0.6) 100%);
+  pointer-events: none;
+}
+
+.aperture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 26px;
+  padding: 0 6vw;
+}
+
+/* readability scrim that sits between photo and text */
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 78% 62% at 50% 52%,
+    rgba(10, 10, 10, 0.52) 0%,
+    rgba(10, 10, 10, 0.28) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.kicker {
+  font-size: 12.5px;
+  letter-spacing: 0.44em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+}
+
+.headline {
+  font-size: clamp(44px, 9vw, 128px);
+  color: var(--cream);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.28em;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.55), 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+.word {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.word > span {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+.headline .gold {
+  color: var(--gold);
+}
+
+.subline {
+  max-width: 560px;
+  font-size: clamp(15px, 1.6vw, 19px);
+  color: rgba(245, 239, 230, 0.95);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+}
+
+.subline em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--gold-bright);
+}
+
+.ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 10.5px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.scrollHint::after {
+  content: "";
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  animation: drip 2s ease-in-out infinite;
+}
+
+@keyframes drip {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 260vh;
+  }
+  .ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+}

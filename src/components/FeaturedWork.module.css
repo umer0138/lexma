@@ -1,0 +1,121 @@
+.wrap {
+  background: var(--black);
+  padding: clamp(90px, 14vh, 170px) 0;
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(36px, 6vh, 64px);
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.kicker::before {
+  content: "";
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.title {
+  font-size: clamp(32px, 4.6vw, 62px);
+  color: var(--cream);
+}
+
+.title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.8vw, 24px);
+}
+
+.item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.item:nth-child(1) {
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-out-expo);
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(200deg, transparent 62%, rgba(10, 10, 10, 0.6));
+  opacity: 0.85;
+  transition: opacity 0.4s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .item:hover img {
+    transform: scale(1.06);
+  }
+  .item:hover::after {
+    opacity: 1;
+  }
+  .item:hover .tag {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.tag {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  z-index: 2;
+  font-size: 11.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  transition: transform 0.4s var(--ease-out-expo), opacity 0.4s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tag {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .item:nth-child(1) {
+    grid-row: auto;
+    grid-column: span 2;
+    aspect-ratio: 16 / 10;
+  }
+}

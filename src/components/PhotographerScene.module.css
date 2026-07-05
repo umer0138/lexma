@@ -1,0 +1,161 @@
+.wrap {
+  position: relative;
+  height: 420vh;
+  background: var(--black);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* soft studio ground + spotlight */
+.stage {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 44% at 50% 100%, rgba(201, 162, 75, 0.09), transparent 70%),
+    radial-gradient(ellipse 90% 60% at 50% 40%, rgba(245, 239, 230, 0.03), transparent);
+}
+
+.ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12vh;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 75, 0.45) 20%, rgba(201, 162, 75, 0.45) 80%, transparent);
+}
+
+.head {
+  position: absolute;
+  top: calc(var(--nav-h) + 3vh);
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 3;
+}
+
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.44em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: clamp(28px, 4.4vw, 58px);
+  color: var(--cream);
+}
+
+.title em {
+  font-style: italic;
+  color: var(--gold-bright);
+}
+
+/* the character */
+.figure {
+  position: absolute;
+  bottom: 12vh;
+  left: 0;
+  width: clamp(150px, 17vw, 300px);
+  height: clamp(260px, 44vh, 520px);
+  will-change: transform;
+  z-index: 2;
+  filter: drop-shadow(0 24px 22px rgba(0, 0, 0, 0.55));
+}
+
+.frame {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+}
+
+.frame img {
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.frameOn {
+  opacity: 1;
+}
+
+/* camera flash */
+.flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 42% 52%, rgba(255, 252, 240, 0.95), rgba(255, 250, 235, 0.35) 45%, transparent 75%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* polaroids that fly out of the camera */
+.polaroid {
+  position: absolute;
+  left: 38vw;
+  bottom: 46vh;
+  width: clamp(150px, 17vw, 280px);
+  padding: 8px 8px 34px;
+  background: #f7f3ea;
+  border-radius: 6px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  z-index: 3;
+  will-change: transform;
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.polaroidCap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: #55524c;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22vh;
+  text-align: center;
+  z-index: 3;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(18px, 2.4vw, 30px);
+  color: var(--gold-bright);
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    height: 340vh;
+  }
+  .figure {
+    width: clamp(120px, 30vw, 200px);
+    height: clamp(220px, 36vh, 360px);
+  }
+  .polaroid {
+    width: clamp(120px, 30vw, 190px);
+    bottom: 52vh;
+  }
+}
