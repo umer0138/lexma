@@ -14,7 +14,7 @@ export default function Preloader() {
     const overlay = overlayRef.current;
     if (!overlay) return;
 
-    const logo = overlay.querySelector(`.${styles.logo}`);
+    const logo = overlay.querySelector(`.${styles.logoPill}`);
     const ring = ringRef.current;
 
     const ctx = gsap.context(() => {
@@ -64,14 +64,16 @@ export default function Preloader() {
             transform="rotate(-90 50 50)"
           />
         </svg>
-        <Image
-          src="/brand/lexma-logo-dark.png"
-          alt=""
-          width={300}
-          height={211}
-          className={styles.logo}
-          priority
-        />
+        <div className={styles.logoPill}>
+          <Image
+            src="/brand/lexma-logo-full.png"
+            alt=""
+            width={300}
+            height={211}
+            className={styles.logo}
+            priority
+          />
+        </div>
       </div>
     </div>
   );

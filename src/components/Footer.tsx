@@ -32,13 +32,15 @@ export default function Footer() {
       <div className="container">
         <div className={styles.grid}>
           <div className={styles.brandCol}>
-            <Image
-              src="/brand/lexma-logo-dark.png"
-              alt="Lexma Real Estate Photography"
-              width={190}
-              height={134}
-              className={styles.mark}
-            />
+            <div className={styles.logoPill}>
+              <Image
+                src="/brand/lexma-logo-full.png"
+                alt="Lexma Real Estate Photography"
+                width={190}
+                height={134}
+                className={styles.mark}
+              />
+            </div>
             <p className={styles.brandLine}>{t.footer.brandLine}</p>
           </div>
 
