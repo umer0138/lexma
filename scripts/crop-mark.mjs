@@ -6,12 +6,12 @@ const src = 'public/brand/lexma-photography-logo.png';
 const meta = await sharp(src).metadata();
 const { width, height } = meta;
 
-// mark sits in the upper-middle portion, text below (~58% down)
+// mark sits in the upper-middle portion; stop well above the LEXMA text (~57%)
 const region = {
   left: Math.round(width * 0.2),
   top: Math.round(height * 0.12),
   width: Math.round(width * 0.6),
-  height: Math.round(height * 0.46),
+  height: Math.round(height * 0.41),
 };
 
 const extracted = await sharp(src).extract(region).png().toBuffer();

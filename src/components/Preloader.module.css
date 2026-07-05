@@ -31,9 +31,9 @@
   height: auto;
   opacity: 0;
   filter: drop-shadow(0 4px 18px rgba(201, 162, 75, 0.25));
-  /* optical centering: the camera lens sits 3.35% right / 1.2% down
+  /* optical centering: the camera lens sits 1.66% left / 6.6% down
      of the artwork's bounding box — shift so the LENS is the true center */
-  translate: -3.35% -1.2%;
+  translate: 1.66% -6.6%;
 }
 
 .wordmark {
