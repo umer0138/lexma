@@ -24,19 +24,9 @@
   height: 100%;
 }
 
-.logoPill {
-  width: 68%;
-  background: rgba(245, 239, 230, 0.96);
-  border-radius: 16px;
-  padding: 10px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
-}
-
 .logo {
-  width: 100%;
+  width: 68%;
   height: auto;
+  opacity: 0;
+  filter: drop-shadow(0 6px 24px rgba(201, 162, 75, 0.28));
 }

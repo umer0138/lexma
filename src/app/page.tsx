@@ -6,6 +6,7 @@ import PhotoServices from "@/components/PhotoServices";
 import FeaturedWork from "@/components/FeaturedWork";
 import Drone from "@/components/Drone";
 import InteriorStrip from "@/components/InteriorStrip";
+import VideoShowcase from "@/components/VideoShowcase";
 import Walkthrough from "@/components/Walkthrough";
 import PhotographerScene from "@/components/PhotographerScene";
 import Solutions from "@/components/Solutions";
@@ -24,6 +25,7 @@ export default function Home() {
         <PhotoServices />
         <Drone />
         <InteriorStrip />
+        <VideoShowcase />
         <Walkthrough />
         <PhotographerScene />
         <FeaturedWork />

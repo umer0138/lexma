@@ -29,16 +29,14 @@ export default function Navbar() {
     <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`}>
       <div className={styles.inner}>
         <Link href="/" className={styles.brand} aria-label="Lexma home">
-          <div className={styles.logoPill}>
-            <Image
-              src="/brand/lexma-logo-full.png"
-              alt="Lexma Real Estate Photography"
-              width={100}
-              height={70}
-              className={styles.mark}
-              priority
-            />
-          </div>
+          <Image
+            src="/brand/lexma-logo-dark.png"
+            alt="Lexma Real Estate Photography"
+            width={100}
+            height={70}
+            className={styles.mark}
+            priority
+          />
         </Link>
 
         <div className={styles.links}>

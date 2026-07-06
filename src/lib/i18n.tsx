@@ -87,6 +87,28 @@ const EN = {
     titleEm: "before you visit.",
     hint: "Scroll to walk",
   },
+  videos: {
+    kicker: "Video Production",
+    titlePre: "Motion that ",
+    titleEm: "moves buyers.",
+    sub: "Three ways we bring a listing to life on screen — from cinematic tours to scroll-stopping social clips.",
+    comingSoon: "Preview coming soon",
+    cats: {
+      tour: {
+        label: "Video Tour",
+        desc: "A cinematic, full-property walkthrough film — smooth, bright and paced to sell.",
+      },
+      reel: {
+        label: "Social Media Reel",
+        desc: "Vertical, fast-cut clips built for Instagram, TikTok and Facebook — where buyers scroll first.",
+      },
+      animated: {
+        label: "Animated Tour / Virtual Walkthrough",
+        desc: "An interactive room-to-room journey you control with your scroll — try it below.",
+        cta: "Experience it",
+      },
+    },
+  },
   scene: {
     kicker: "Behind The Lens",
     titlePre: "Watch the shot ",
@@ -282,6 +304,28 @@ const ES: Dict = {
     titlePre: "Recorre la casa ",
     titleEm: "antes de visitarla.",
     hint: "Desliza para caminar",
+  },
+  videos: {
+    kicker: "Producción de Video",
+    titlePre: "Movimiento que ",
+    titleEm: "conquista compradores.",
+    sub: "Tres formas de darle vida a una propiedad en pantalla — desde tours cinematográficos hasta clips que detienen el scroll.",
+    comingSoon: "Vista previa próximamente",
+    cats: {
+      tour: {
+        label: "Video Tour",
+        desc: "Un recorrido cinematográfico completo de la propiedad — fluido, luminoso y hecho para vender.",
+      },
+      reel: {
+        label: "Social Media Reel",
+        desc: "Clips verticales y dinámicos para Instagram, TikTok y Facebook — donde los compradores miran primero.",
+      },
+      animated: {
+        label: "Tour Animado / Recorrido Virtual",
+        desc: "Un recorrido interactivo habitación por habitación que controlas con tu scroll — pruébalo abajo.",
+        cta: "Vívelo",
+      },
+    },
   },
   scene: {
     kicker: "Detrás Del Lente",

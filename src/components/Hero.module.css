@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  height: 320vh;
+  height: 170vh;
   background: var(--black);
 }
 
@@ -168,7 +168,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    height: 260vh;
+    height: 150vh;
   }
   .ctas {
     flex-direction: column;

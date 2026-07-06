@@ -2,7 +2,7 @@
 import sharp from 'sharp';
 import { writeFile, mkdir } from 'fs/promises';
 
-const SRC = 'B:/MAIRA-website/Gemini_Generated_Image_vjwkwkvjwkwkvjwk.png';
+const SRC = 'B:/MAIRA-website/Gemini_Generated_Image_fr8m9qfr8m9qfr8m.png';
 const OUT = 'public/avatar';
 await mkdir(OUT, { recursive: true });
 
@@ -62,13 +62,24 @@ for (let p = 0; p < mask.length; p++) {
 }
 
 // characters: big & tall components
-const chars = comps
-  .filter((c) => c.area > 15000 && c.maxY - c.minY > 250)
-  .sort((a, b) => {
-    const rowA = a.minY > 700 ? 1 : 0;
-    const rowB = b.minY > 700 ? 1 : 0;
-    return rowA - rowB || a.minX - b.minX;
-  });
+const big = comps.filter((c) => c.area > 15000 && c.maxY - c.minY > 250);
+// generic row clustering: group by vertical center, tolerance = 40% of tallest char
+const tallest = Math.max(...big.map((c) => c.maxY - c.minY));
+const tol = tallest * 0.4;
+big.sort((a, b) => (a.minY + a.maxY) / 2 - (b.minY + b.maxY) / 2);
+const rows = [];
+for (const c of big) {
+  const cy = (c.minY + c.maxY) / 2;
+  const row = rows.find((r) => Math.abs(r.cy - cy) < tol);
+  if (row) {
+    row.items.push(c);
+    row.cy = row.items.reduce((s, i) => s + (i.minY + i.maxY) / 2, 0) / row.items.length;
+  } else {
+    rows.push({ cy, items: [c] });
+  }
+}
+rows.sort((a, b) => a.cy - b.cy);
+const chars = rows.flatMap((r) => r.items.sort((a, b) => a.minX - b.minX));
 
 console.log('components total:', comps.length, 'characters:', chars.length);
 

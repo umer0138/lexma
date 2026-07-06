@@ -30,22 +30,29 @@ export default function Hero() {
       const ctas = root.querySelector(`.${styles.ctas}`);
       const hint = root.querySelector(`.${styles.scrollHint}`);
 
-      // ---- entrance (after preloader): aperture cracks open slightly
+      // ---- entrance (after preloader): aperture opens straight to the full house
       gsap.timeline({ delay: 2.6 })
-        .to(holeRef.current, {
-          attr: { r: 9 },
-          duration: 1.2,
-          ease: "power3.inOut",
-        })
+        .to(ringRef.current, { attr: { r: 10.2 }, opacity: 1, duration: 0.5, ease: "power2.out" })
+        .to(holeRef.current, { attr: { r: 95 }, duration: 1.5, ease: "power3.inOut" }, "-=0.1")
+        .to(ringRef.current, { attr: { r: 96 }, opacity: 0, duration: 1.5, ease: "power3.inOut" }, "<")
         .to(
-          ringRef.current,
-          { attr: { r: 10.2 }, opacity: 1, duration: 1.2, ease: "power3.inOut" },
+          bladesRef.current,
+          { rotation: 40, scale: 2.6, opacity: 0, transformOrigin: "50% 50%", duration: 1.5, ease: "power3.inOut" },
           "<"
         )
-        .to(kicker, { opacity: 1, duration: 0.6 }, "-=0.4");
+        .fromTo(
+          imageRef.current,
+          { scale: 1.28 },
+          { scale: 1, duration: 2, ease: "power2.out" },
+          "<"
+        )
+        .to(kicker, { opacity: 1, duration: 0.6 }, "-=1.4")
+        .to(words, { y: 0, stagger: 0.1, duration: 0.7, ease: "power3.out" }, "-=1.2")
+        .to(subline, { opacity: 1, duration: 0.5 }, "-=0.6")
+        .to(ctas, { opacity: 1, duration: 0.5 }, "-=0.3");
 
-      // ---- scroll-driven master timeline
-      const tl = gsap.timeline({
+      // ---- scroll: gentle parallax drift + hint fade
+      gsap.timeline({
         scrollTrigger: {
           trigger: root,
           start: "top top",
@@ -53,35 +60,9 @@ export default function Hero() {
           scrub: 0.9,
         },
         defaults: { ease: "none" },
-      });
-
-      // aperture opens fully
-      tl.to(holeRef.current, { attr: { r: 95 } }, 0)
-        .to(ringRef.current, { attr: { r: 96 }, opacity: 0 }, 0)
-        .to(
-          bladesRef.current,
-          { rotation: 40, scale: 2.6, opacity: 0, transformOrigin: "50% 50%" },
-          0
-        )
-        // photo settles from zoomed to natural
-        .fromTo(
-          imageRef.current,
-          { scale: 1.28 },
-          { scale: 1, ease: "power1.out" },
-          0
-        )
-        // headline words rise as aperture passes half-open
-        .to(
-          words,
-          { y: 0, stagger: 0.12, duration: 0.5, ease: "power3.out" },
-          0.22
-        )
-        .to(subline, { opacity: 1, duration: 0.3 }, 0.52)
-        .to(ctas, { opacity: 1, duration: 0.3 }, 0.62)
-        // hint fades once user is deep in
-        .to(hint, { opacity: 0, duration: 0.2 }, 0.25)
-        // gentle parallax drift at the end before unpin
-        .to(imageRef.current, { yPercent: -4, duration: 0.3 }, 0.7);
+      })
+        .to(hint, { opacity: 0, duration: 0.2 }, 0.1)
+        .to(imageRef.current, { yPercent: -6, duration: 0.8 }, 0.2);
     }, root);
 
     return () => ctx.revert();
@@ -93,7 +74,7 @@ export default function Hero() {
       <div className={styles.sticky}>
         <div ref={imageRef} className={styles.imageWrap}>
           <Image
-            src="/images/front/DSC_3287_Twilight.jpg"
+            src="/images/hero-main.jpg"
             alt="Twilight real estate photography by Lexma — Houston property at dusk"
             fill
             priority

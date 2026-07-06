@@ -15,6 +15,7 @@ const POSES = {
   shoot2: "/avatar/pose-04.png",
   lower: "/avatar/pose-05.png",
   thumbs: "/avatar/pose-11.png",
+  wave: "/avatar/pose-12.png",
 };
 
 const SHOT_MEDIA = [
@@ -50,8 +51,8 @@ export default function PhotographerScene() {
       const frames = Array.from(
         figure.querySelectorAll<HTMLElement>(`.${styles.frame}`)
       );
-      // frame keys in DOM order: 8 walk frames then the 5 poses
-      const FRAME_KEYS = [...WALK.map((_, i) => `w${i}`), "lift", "shoot", "shoot2", "lower", "thumbs"];
+      // frame keys in DOM order: 8 walk frames then the 6 poses
+      const FRAME_KEYS = [...WALK.map((_, i) => `w${i}`), "lift", "shoot", "shoot2", "lower", "thumbs", "wave"];
       const show = (key: string) => {
         const idx = FRAME_KEYS.indexOf(key);
         frames.forEach((f, i) => f.classList.toggle(styles.frameOn, i === idx));
@@ -84,10 +85,11 @@ export default function PhotographerScene() {
             gsap.set(figure, { x, scaleX: 1 });
             show(walkFrame(t, 4));
           } else if (p < PH.liftEnd) {
-            gsap.set(figure, { x: 0.36 * vw, scaleX: 1 });
+            // flip: shoot toward the right, where the polaroids land
+            gsap.set(figure, { x: 0.36 * vw, scaleX: -1 });
             show("lift");
           } else if (p < PH.shot1) {
-            gsap.set(figure, { x: 0.36 * vw });
+            gsap.set(figure, { x: 0.36 * vw, scaleX: -1 });
             show("shoot");
           } else if (p < PH.shot2) {
             if (!firedFlash[0] && flash) {
@@ -96,6 +98,7 @@ export default function PhotographerScene() {
               gsap.fromTo(polaroids[0], { opacity: 0, x: -0.2 * vw, y: 120, rotation: -18, scale: 0.3 }, { opacity: 1, x: 0, y: 0, rotation: SHOTS[0].rot, scale: 1, duration: 0.8, ease: "back.out(1.4)" });
               gsap.fromTo(polaroids[1], { opacity: 0 }, { opacity: 0, duration: 0.1 });
             }
+            gsap.set(figure, { scaleX: -1 });
             show("shoot2");
           } else if (p < PH.lowerEnd) {
             if (!firedFlash[1] && flash) {
@@ -104,15 +107,21 @@ export default function PhotographerScene() {
               gsap.fromTo(polaroids[1], { opacity: 0, x: -0.28 * vw, y: 140, rotation: 16, scale: 0.3 }, { opacity: 1, x: 0, y: 0, rotation: SHOTS[1].rot, scale: 1, duration: 0.8, ease: "back.out(1.4)" });
               gsap.fromTo(polaroids[2], { opacity: 0, x: -0.34 * vw, y: 150, rotation: -14, scale: 0.3 }, { opacity: 1, x: 0, y: 0, rotation: SHOTS[2].rot, scale: 1, duration: 0.8, delay: 0.25, ease: "back.out(1.4)" });
             }
+            gsap.set(figure, { scaleX: -1 });
             show("lower");
-          } else if (p < PH.walkOutStart) {
+          } else if (p < PH.thumbsEnd) {
+            gsap.set(figure, { scaleX: 1 });
             show("thumbs");
             if (caption) gsap.to(caption, { opacity: 1, duration: 0.4 });
+          } else if (p < PH.walkOutStart) {
+            // goodbye wave before walking off
+            gsap.set(figure, { scaleX: 1 });
+            show("wave");
           } else {
             // walk out: 36vw -> 115vw
             const t = (p - PH.walkOutStart) / (1 - PH.walkOutStart);
             const x = (0.36 + t * 0.85) * vw;
-            gsap.set(figure, { x });
+            gsap.set(figure, { x, scaleX: 1 });
             show(walkFrame(t, 3));
           }
 

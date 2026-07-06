@@ -30,8 +30,8 @@ const PHOTO_SERVICES = [
       "Professional editing on every photo",
       "Fast turnaround for active listings",
     ],
-    img: "/images/front/DSC_3902.jpg",
-    alt: "Front elevation photography of a stone facade Houston home",
+    img: "/images/service-01.jpg",
+    alt: "Real estate photography by Lexma — Houston property exterior",
   },
   {
     id: "drone",

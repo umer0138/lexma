@@ -2,7 +2,7 @@
 import sharp from 'sharp';
 import { writeFile, mkdir } from 'fs/promises';
 
-const IN = 'C:/Users/HASSAA~1/AppData/Local/Temp/claude/B--Web-ide-petrinets/a17a5975-e88f-4c04-b4c8-9656673222a5/scratchpad/lexwalk';
+const IN = 'C:/Users/HASSAA~1/AppData/Local/Temp/claude/B--Web-ide-petrinets/70dff546-dc3f-42d1-880a-9a9a0955c7f2/scratchpad/lexwalk2';
 const OUT = 'public/avatar/walk';
 await mkdir(OUT, { recursive: true });
 

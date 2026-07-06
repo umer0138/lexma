@@ -126,6 +126,7 @@ export default function Walkthrough() {
   return (
     <section
       ref={rootRef}
+      id="walkthrough"
       className={styles.wrap}
       aria-label="Virtual walkthrough preview"
     >
