@@ -242,6 +242,24 @@ const Assistant = (
   </Frame>
 );
 
+/* Branding & Graphic Materials: business card + logo mark + swatches */
+const Branding = (
+  <Frame>
+    <rect x="70" y="80" width="150" height="92" rx="8" fill="#12110f" stroke={G} strokeWidth="2" transform="rotate(-6 145 126)" />
+    <circle cx="105" cy="112" r="14" fill="none" stroke={GB} strokeWidth="2" transform="rotate(-6 145 126)" />
+    <path d="M99 112 l5 5 9 -11" stroke={GB} strokeWidth="2" fill="none" transform="rotate(-6 145 126)" />
+    <rect x="130" y="102" width="70" height="8" rx="4" fill={CREAM} transform="rotate(-6 145 126)" />
+    <rect x="130" y="118" width="48" height="6" rx="3" fill={DIM} transform="rotate(-6 145 126)" />
+    <rect x="190" y="130" width="150" height="92" rx="8" fill="none" stroke={GB} strokeWidth="2" transform="rotate(5 265 176)" />
+    <rect x="208" y="150" width="60" height="8" rx="4" fill={CREAM} transform="rotate(5 265 176)" />
+    <rect x="208" y="166" width="90" height="6" rx="3" fill={DIM} transform="rotate(5 265 176)" />
+    <rect x="208" y="180" width="90" height="6" rx="3" fill={DIM} transform="rotate(5 265 176)" />
+    <circle cx="96" cy="215" r="11" fill={G} />
+    <circle cx="124" cy="215" r="11" fill={GB} />
+    <circle cx="152" cy="215" r="11" fill="none" stroke={CREAM} strokeWidth="2" />
+  </Frame>
+);
+
 export const SERVICE_PREVIEWS: React.ReactNode[] = [
   Website,
   Software,
@@ -253,4 +271,15 @@ export const SERVICE_PREVIEWS: React.ReactNode[] = [
   WhatsAppCRM,
   Dashboard,
   Assistant,
+];
+
+/* Art for the 7 Lexma Digital Services cards, in display order */
+export const SOLUTION_CARD_ART: React.ReactNode[] = [
+  Website,      // 1 Website Design & Development
+  Branding,     // 2 Branding & Graphic Materials
+  Assistant,    // 3 AI Business Assistants
+  WhatsAppCRM,  // 4 Automation & CRM Systems
+  Software,     // 5 Custom Business Software
+  Integration,  // 6 Business Tool Integration
+  SEO,          // 7 SEO, Ads & Email Marketing
 ];

@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 const WORK = [
   { img: "/images/front/DSC_5654---Nightshot.jpg", tag: "Twilight", alt: "Twilight exterior shot of modern Houston home" },
   { img: "/images/aerials/DJI_0007.jpg", tag: "Aerial", alt: "Aerial drone view of Houston property" },
-  { img: "/images/interior/DSC_4449.jpg", tag: "Interior", alt: "Staged living room with stone fireplace" },
+  { img: "/images/apt-living.jpg", tag: "Airbnb", alt: "Modern white and gold apartment living area" },
   { img: "/images/front/DJI_0019.jpg", tag: "Exterior", alt: "Front elevation of Houston home" },
   { img: "/images/interior/DSC_2992.jpg", tag: "Interior", alt: "Bright staged interior" },
 ];

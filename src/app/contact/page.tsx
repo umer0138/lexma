@@ -36,11 +36,11 @@ export default function ContactPage() {
 
               <div className={styles.info}>
                 <div className={styles.card}>
-                  <div className={styles.cardTitle}>Call or Text</div>
+                  <div className={styles.cardTitle}>Call, Text or WhatsApp</div>
                   <a href="tel:+13465586955">346-558-6955</a>
                   <a href="tel:+13465586963">346-558-6963</a>
                   <p className={styles.cardSub}>
-                    Both numbers work for WhatsApp, calls and text.
+                    Both numbers work for calls, text messages and WhatsApp.
                   </p>
                 </div>
 

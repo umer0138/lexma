@@ -1,0 +1,245 @@
+/* ---- clickable media (matches services .media look) ---- */
+.stack {
+  display: grid;
+  gap: 16px;
+}
+
+.media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+  cursor: zoom-in;
+  padding: 0;
+  border: none;
+  background: #111;
+}
+
+.mediaWide {
+  aspect-ratio: 16 / 9;
+}
+
+.media img {
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-out-expo);
+}
+
+.hintChip {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: rgba(10, 10, 10, 0.55);
+  border: 1px solid rgba(201, 162, 75, 0.45);
+  border-radius: 999px;
+  padding: 8px 14px;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s, transform 0.45s var(--ease-out-expo);
+  pointer-events: none;
+}
+
+.hintChip svg {
+  width: 14px;
+  height: 14px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .media:hover img {
+    transform: scale(1.05);
+  }
+  .media:hover .hintChip {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .hintChip {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- fullscreen cinematic lightbox ---- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: #060606;
+  overflow: hidden;
+}
+
+.chrome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px clamp(20px, 4vw, 48px);
+}
+
+.lbLabel {
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+
+.closeBtn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 239, 230, 0.3);
+  color: var(--cream);
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 10, 10, 0.4);
+  transition: border-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.closeBtn:hover {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+  transform: rotate(90deg);
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 5;
+  background: rgba(245, 239, 230, 0.12);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+}
+
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(70px, 10vh, 110px) clamp(16px, 4vw, 60px) clamp(60px, 9vh, 96px);
+  gap: 18px;
+}
+
+.shotImg {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+/* full photo, never cropped */
+.shotImg img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 40px 110px rgba(0, 0, 0, 0.7);
+}
+
+.cap {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(15px, 1.8vw, 20px);
+  color: rgba(245, 239, 230, 0.85);
+  text-align: center;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 239, 230, 0.28);
+  background: rgba(10, 10, 10, 0.45);
+  color: var(--cream);
+  font-size: 19px;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(4px);
+  transition: border-color 0.3s, color 0.3s, opacity 0.3s;
+}
+
+.arrow:hover:not(:disabled) {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+
+.arrow:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.arrowLeft {
+  left: clamp(14px, 3vw, 36px);
+}
+
+.arrowRight {
+  right: clamp(14px, 3vw, 36px);
+}
+
+.counter {
+  position: absolute;
+  bottom: 22px;
+  right: clamp(20px, 4vw, 48px);
+  z-index: 4;
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--cream);
+}
+
+.counter span {
+  color: var(--grey);
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .arrow {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+  .counter {
+    bottom: 16px;
+  }
+}

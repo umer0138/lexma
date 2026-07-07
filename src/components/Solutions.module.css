@@ -54,274 +54,125 @@
   font-size: clamp(15px, 1.5vw, 18px);
 }
 
-/* ---- services list + orb rail ---- */
-.list {
+/* ---- premium service cards ---- */
+.cardsZone {
   padding: clamp(50px, 8vh, 100px) 0 clamp(90px, 14vh, 160px);
 }
 
-.listGrid {
+.cardGrid {
   display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(18px, 2.2vw, 30px);
 }
 
-.rail {
-  position: relative;
-}
-
-.railLine {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(154, 122, 50, 0.35) 6%,
-    rgba(154, 122, 50, 0.35) 94%,
-    transparent
-  );
-}
-
-.railProgress {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 2px;
-  margin-left: -0.5px;
-  height: 100%;
-  background: var(--gold);
-  transform-origin: top;
-  transform: scaleY(0);
-}
-
-/* --- the golden lens orb --- */
-.orb {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 58px;
-  height: 58px;
-  margin: -29px 0 0 -29px;
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fffdf8;
+  border: 1px solid rgba(154, 122, 50, 0.18);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 34px rgba(26, 25, 23, 0.08);
+  transition:
+    transform 0.5s var(--ease-out-expo),
+    box-shadow 0.5s var(--ease-out-expo),
+    border-color 0.35s;
   will-change: transform;
-  z-index: 3;
-  pointer-events: none;
 }
 
-.orbBody {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 32% 28%, #fff7e0 0%, #e8c06f 22%, #c9a24b 45%, #8a6a28 72%, #4d3a12 100%);
-  box-shadow:
-    inset -6px -8px 16px rgba(58, 42, 8, 0.55),
-    inset 4px 6px 10px rgba(255, 244, 214, 0.5),
-    0 18px 34px rgba(154, 122, 50, 0.35);
-  animation: orbFloat 3.4s ease-in-out infinite;
+.cardWide {
+  grid-column: span 2;
 }
 
-.orbLens {
-  position: absolute;
-  inset: 17px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 35%, #3a3a3a 0%, #101010 55%, #000 100%);
-  box-shadow:
-    inset 0 0 0 2px rgba(232, 192, 111, 0.9),
-    inset 0 0 12px rgba(0, 0, 0, 0.9);
-}
-
-.orbLens::after {
-  content: "";
-  position: absolute;
-  left: 22%;
-  top: 18%;
-  width: 26%;
-  height: 26%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.85), transparent 70%);
-}
-
-.orbRing {
-  position: absolute;
-  inset: -7px;
-  border-radius: 50%;
-  border: 1px dashed rgba(201, 162, 75, 0.55);
-  animation: orbSpin 9s linear infinite;
-}
-
-@keyframes orbSpin {
-  to {
-    transform: rotate(360deg);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(201, 162, 75, 0.65);
+    box-shadow:
+      0 30px 60px rgba(26, 25, 23, 0.16),
+      0 0 0 1px rgba(201, 162, 75, 0.25);
+  }
+  .card:hover .cardArt svg {
+    transform: scale(1.045);
+  }
+  .card:hover .cardLink {
+    color: var(--gold-deep);
+  }
+  .card:hover .cardLink svg {
+    transform: translateX(6px);
   }
 }
 
-@keyframes orbFloat {
-  0%,
-  100% {
-    transform: translateY(-2px);
-  }
-  50% {
-    transform: translateY(2px);
-  }
+.cardArt {
+  position: relative;
+  aspect-ratio: 21 / 10;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(154, 122, 50, 0.16);
+  background: #12110f;
 }
 
-/* docked pulse */
-.orbPulse {
-  position: absolute;
-  inset: -2px;
-  border-radius: 50%;
-  border: 2px solid rgba(201, 162, 75, 0.5);
-  opacity: 0;
+.cardWide .cardArt {
+  aspect-ratio: 21 / 8;
 }
 
-.orbDocked .orbPulse {
-  animation: dockPulse 1.6s ease-out infinite;
-}
-
-@keyframes dockPulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1.7);
-    opacity: 0;
-  }
-}
-
-.row {
-  border-top: 1px solid rgba(26, 25, 23, 0.14);
-  transition: background 0.35s;
-}
-
-.row:last-child {
-  border-bottom: 1px solid rgba(26, 25, 23, 0.14);
-}
-
-.rowHead {
+.cardArt svg {
   width: 100%;
-  display: grid;
-  grid-template-columns: 70px 1fr auto;
-  align-items: center;
-  gap: 20px;
-  padding: 26px 10px;
-  text-align: left;
-  color: inherit;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out-expo);
 }
 
-.num {
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(20px, 2.4vw, 30px);
+  flex: 1;
+}
+
+.cardNum {
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 13px;
+  letter-spacing: 0.3em;
   color: var(--gold-deep);
   font-weight: 600;
 }
 
-.name {
+.cardName {
   font-family: var(--font-display);
-  font-size: clamp(20px, 2.6vw, 32px);
+  font-size: clamp(19px, 1.9vw, 25px);
   font-weight: 600;
   letter-spacing: -0.01em;
+  color: var(--black);
+  line-height: 1.15;
 }
 
-.chev {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid rgba(26, 25, 23, 0.25);
-  display: grid;
-  place-items: center;
-  font-size: 17px;
-  line-height: 1;
-  transition: transform 0.4s var(--ease-out-expo), background 0.3s, color 0.3s;
+.cardDesc {
+  color: rgba(26, 25, 23, 0.68);
+  font-size: 14.5px;
+  line-height: 1.65;
+  flex: 1;
 }
 
-.rowOpen .chev {
-  transform: rotate(45deg);
-  background: var(--black);
-  color: var(--cream);
-  border-color: var(--black);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .row:hover {
-    background: rgba(201, 162, 75, 0.07);
-  }
-}
-
-.body {
-  overflow: hidden;
-  height: 0;
-  opacity: 0;
-}
-
-.bodyInner {
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  gap: 20px;
-  padding: 0 10px 30px;
-}
-
-.desc {
-  grid-column: 2;
-  max-width: 720px;
-  color: rgba(26, 25, 23, 0.7);
-  font-size: 16px;
-}
-
-.quoteBtn {
-  margin-top: 18px;
-}
-
-/* ---- cursor-following hover preview card ---- */
-.hoverCard {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 40;
-  width: 300px;
-  aspect-ratio: 4 / 3;
-  border-radius: 14px;
-  overflow: hidden;
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  box-shadow: 0 30px 70px rgba(26, 25, 23, 0.35);
-  will-change: transform;
-}
-
-.hoverCardArt,
-.hoverCardArt svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.hoverCard::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 1px solid rgba(201, 162, 75, 0.35);
-  pointer-events: none;
-}
-
-.hoverCardLabel {
-  position: absolute;
-  left: 14px;
-  bottom: 12px;
-  z-index: 2;
-  font-size: 11px;
-  letter-spacing: 0.26em;
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--cream);
+  color: var(--black);
+  transition: color 0.3s;
+  width: fit-content;
 }
 
-@media (hover: none), (pointer: coarse) {
-  .hoverCard {
-    display: none;
-  }
+.cardLink svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.4s var(--ease-out-expo);
 }
 
 /* ---- 3D golden gyroscope drifting behind the whole section ---- */
@@ -416,7 +267,7 @@
 
 /* content sits above the gyro */
 .intro,
-.list {
+.cardsZone {
   position: relative;
   z-index: 1;
 }
@@ -427,42 +278,25 @@
   }
 }
 
-/* active row highlight while orb is docked */
-.rowActive {
-  background: rgba(201, 162, 75, 0.08);
+/* ---- responsive grid ---- */
+@media (max-width: 1024px) {
+  .cardGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cardWide {
+    grid-column: span 2;
+  }
 }
 
-.rowActive .num {
-  color: var(--gold);
-  text-shadow: 0 0 14px rgba(201, 162, 75, 0.55);
-}
-
-.rowActive .name {
-  color: var(--gold-deep);
-}
-
-@media (max-width: 700px) {
-  .listGrid {
-    grid-template-columns: 34px 1fr;
-  }
-  .orb {
-    width: 34px;
-    height: 34px;
-    margin: -17px 0 0 -17px;
-  }
-  .orbLens {
-    inset: 10px;
-  }
-  .orbRing {
-    inset: -5px;
-  }
-  .rowHead {
-    grid-template-columns: 44px 1fr auto;
-  }
-  .bodyInner {
+@media (max-width: 640px) {
+  .cardGrid {
     grid-template-columns: 1fr;
   }
-  .desc {
-    grid-column: 1;
+  .cardWide {
+    grid-column: span 1;
+  }
+  .cardArt,
+  .cardWide .cardArt {
+    aspect-ratio: 16 / 9;
   }
 }

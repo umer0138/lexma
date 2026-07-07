@@ -16,7 +16,7 @@
   --font-display: var(--font-fraunces), Georgia, serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --nav-h: 76px;
+  --nav-h: 94px;
 }
 
 * {

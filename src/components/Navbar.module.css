@@ -40,13 +40,13 @@
 
 .mark {
   width: auto;
-  height: 62px;
+  height: 80px;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
 }
 
 @media (max-width: 560px) {
   .mark {
-    height: 52px;
+    height: 62px;
   }
 }
 

@@ -132,43 +132,31 @@ const EN = {
     services: [
       {
         name: "Website Design & Development",
-        desc: "Professional websites for businesses, service providers, real estate brands, and companies that need a clean online presence — landing pages, business websites, contact and quote forms, booking options, and sites connected to WhatsApp, email, or CRM systems.",
+        desc: "Websites, landing pages, contact forms, quote request pages, WhatsApp and email connections, and internal system connections — a clean, professional online presence built to convert.",
       },
       {
-        name: "Custom Business Software",
-        desc: "Custom digital systems built for business operations — client portals, admin dashboards, booking systems, internal platforms, private catalogs, inventory tools, and custom online platforms designed around your workflow.",
-      },
-      {
-        name: "Automation Services",
-        desc: "Automation for repetitive business tasks that saves time and reduces manual work — automated forms, email notifications, WhatsApp alerts, Google Sheets updates, lead follow-ups, appointment reminders, and automated reporting.",
-      },
-      {
-        name: "Business Tool Integration",
-        desc: "Connecting your business tools so they work together automatically — website forms to Google Sheets, CRM systems, email campaigns, WhatsApp notifications, calendars, quote requests, and internal databases.",
-      },
-      {
-        name: "AI Automation & Intelligent Workflows",
-        desc: "AI-powered workflows that help businesses manage information, respond faster, and organize operations — AI-assisted replies, customer classification, automated summaries, document review, report generation, and smart multi-tool workflows.",
-      },
-      {
-        name: "SEO & Google Ads",
-        desc: "Search visibility and paid advertising for businesses that want to appear better online — on-page SEO optimization, Google search visibility improvements, keyword targeting, and Google Ads campaign setup.",
-      },
-      {
-        name: "Email Marketing Automation",
-        desc: "Automated email campaigns for customer follow-up, promotions, reminders, newsletters, and sales sequences — stay connected with leads and clients without manually sending every message.",
-      },
-      {
-        name: "WhatsApp & CRM Automation",
-        desc: "Capture and organize leads from WhatsApp, website forms, or social media — automatic replies, lead collection, customer segmentation, follow-up alerts, and client data stored neatly in a CRM or Google Sheets system.",
-      },
-      {
-        name: "Business Dashboards & Reports",
-        desc: "Simple dashboards and reports that help business owners track leads, sales, appointments, campaign results, customer activity, and monthly performance at a glance.",
+        name: "Branding & Graphic Materials",
+        desc: "Logos, basic brand identity, business cards, brochures, flyers, promotional graphics, and the visual materials that make a business look established and trustworthy.",
       },
       {
         name: "AI Business Assistants",
-        desc: "Custom AI assistants designed to support business operations — answering common questions, organizing leads, preparing responses, summarizing conversations, creating quotes, and supporting internal team tasks.",
+        desc: "AI assistants that answer questions, organize information, prepare replies, summarize conversations, help with quotes, and support internal business tasks.",
+      },
+      {
+        name: "Automation & CRM Systems",
+        desc: "WhatsApp automation, forms, client follow-up, reminders, alerts, lead organization, CRM, and Google Sheets connections — so no lead ever falls through the cracks.",
+      },
+      {
+        name: "Custom Business Software",
+        desc: "Custom systems, internal portals, private catalogs, booking systems, inventory tools, dashboards, and business tools built around exactly how your business works.",
+      },
+      {
+        name: "Business Tool Integration",
+        desc: "Connecting websites, forms, WhatsApp, email, calendars, databases, reports, and internal systems so everything works together automatically.",
+      },
+      {
+        name: "SEO, Ads & Email Marketing",
+        desc: "Basic SEO, Google Ads, email campaigns, newsletters, promotions, customer follow-up, reporting, and the tools that make a business more visible.",
       },
     ],
   },
@@ -178,12 +166,12 @@ const EN = {
     titleEm: "move?",
     sub: "Tell us about your property or project — we'll reply with a custom quote. Fast turnaround, no obligations.",
     ctaQuote: "Request a Quote",
-    ctaWhats: "WhatsApp Us",
+    ctaWhats: "Text or WhatsApp Us",
     callPre: "Call or text",
   },
   footer: {
     bigPre: "Let's make it ",
-    bigEm: "move.",
+    bigEm: "happen.",
     bigSub: "Request a Quote",
     brandLine:
       "Professional real estate media & digital solutions serving the Greater Houston Area.",
@@ -224,7 +212,7 @@ const EN = {
     messagePh:
       "Tell us about the property or project — size, timeline, anything that helps us quote accurately. You can also email us reference files at info@lexmasolutions.com.",
     submit: "Send Quote Request",
-    note: "We reply fast — or skip the form and WhatsApp us directly at 346-558-6955.",
+    note: "We reply fast — or skip the form and text or WhatsApp us directly at 346-558-6955.",
     sent: "✓ Thank you! Your request was sent — we'll get back to you shortly with a quote.",
   },
 };
@@ -350,43 +338,31 @@ const ES: Dict = {
     services: [
       {
         name: "Diseño y Desarrollo Web",
-        desc: "Sitios web profesionales para negocios, proveedores de servicios, marcas inmobiliarias y empresas que necesitan presencia en línea — landing pages, sitios corporativos, formularios de contacto y cotización, reservas, y sitios conectados a WhatsApp, email o CRM.",
+        desc: "Sitios web, landing pages, formularios de contacto, páginas de cotización, conexiones con WhatsApp y email, y conexiones con sistemas internos — una presencia en línea limpia y profesional, hecha para convertir.",
       },
       {
-        name: "Software Empresarial a Medida",
-        desc: "Sistemas digitales a medida para operaciones de negocio — portales de clientes, paneles administrativos, sistemas de reservas, plataformas internas, catálogos privados y herramientas de inventario diseñadas según tu flujo de trabajo.",
-      },
-      {
-        name: "Servicios de Automatización",
-        desc: "Automatización de tareas repetitivas que ahorra tiempo y reduce trabajo manual — formularios automáticos, notificaciones por email, alertas de WhatsApp, actualizaciones en Google Sheets, seguimiento de leads, recordatorios de citas y reportes automáticos.",
-      },
-      {
-        name: "Integración de Herramientas",
-        desc: "Conectamos tus herramientas de negocio para que trabajen juntas — formularios web con Google Sheets, sistemas CRM, campañas de email, notificaciones de WhatsApp, calendarios, cotizaciones y bases de datos internas.",
-      },
-      {
-        name: "Automatización con IA y Flujos Inteligentes",
-        desc: "Flujos impulsados por IA que ayudan a gestionar información, responder más rápido y organizar operaciones — respuestas asistidas, clasificación de clientes, resúmenes automáticos, revisión de documentos y generación de reportes.",
-      },
-      {
-        name: "SEO y Google Ads",
-        desc: "Visibilidad en buscadores y publicidad pagada para negocios que quieren destacar en línea — optimización SEO, mejoras de visibilidad en Google, segmentación de palabras clave y configuración de campañas de Google Ads.",
-      },
-      {
-        name: "Automatización de Email Marketing",
-        desc: "Campañas de email automatizadas para seguimiento, promociones, recordatorios, boletines y secuencias de venta — mantente conectado con tus clientes sin enviar cada mensaje manualmente.",
-      },
-      {
-        name: "Automatización de WhatsApp y CRM",
-        desc: "Captura y organiza leads de WhatsApp, formularios web o redes sociales — respuestas automáticas, recolección de leads, segmentación de clientes, alertas de seguimiento y datos ordenados en un CRM o Google Sheets.",
-      },
-      {
-        name: "Dashboards y Reportes de Negocio",
-        desc: "Paneles y reportes simples para que los dueños de negocio vean de un vistazo sus leads, ventas, citas, resultados de campañas, actividad de clientes y rendimiento mensual.",
+        name: "Branding y Material Gráfico",
+        desc: "Logos, identidad de marca, tarjetas de presentación, folletos, flyers, gráficos promocionales y el material visual que hace que un negocio se vea establecido y confiable.",
       },
       {
         name: "Asistentes de Negocio con IA",
-        desc: "Asistentes de IA a medida que apoyan la operación del negocio — responden preguntas frecuentes, organizan leads, preparan respuestas, resumen conversaciones, crean cotizaciones y apoyan tareas internas del equipo.",
+        desc: "Asistentes de IA que responden preguntas, organizan información, preparan respuestas, resumen conversaciones, ayudan con cotizaciones y apoyan tareas internas del negocio.",
+      },
+      {
+        name: "Automatización y Sistemas CRM",
+        desc: "Automatización de WhatsApp, formularios, seguimiento de clientes, recordatorios, alertas, organización de leads, CRM y conexiones con Google Sheets — para que ningún lead se pierda.",
+      },
+      {
+        name: "Software Empresarial a Medida",
+        desc: "Sistemas a medida, portales internos, catálogos privados, sistemas de reservas, herramientas de inventario, dashboards y herramientas construidas alrededor de cómo funciona tu negocio.",
+      },
+      {
+        name: "Integración de Herramientas",
+        desc: "Conectamos sitios web, formularios, WhatsApp, email, calendarios, bases de datos, reportes y sistemas internos para que todo funcione junto, automáticamente.",
+      },
+      {
+        name: "SEO, Ads y Email Marketing",
+        desc: "SEO básico, Google Ads, campañas de email, boletines, promociones, seguimiento de clientes, reportes y las herramientas que hacen más visible a un negocio.",
       },
     ],
   },
@@ -396,7 +372,7 @@ const ES: Dict = {
     titleEm: "tu propiedad?",
     sub: "Cuéntanos sobre tu propiedad o proyecto — te responderemos con una cotización a tu medida. Respuesta rápida, sin compromiso.",
     ctaQuote: "Pedir Cotización",
-    ctaWhats: "Escríbenos por WhatsApp",
+    ctaWhats: "Mensaje de Texto o WhatsApp",
     callPre: "Llama o escribe al",
   },
   footer: {

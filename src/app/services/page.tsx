@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import ServiceGallery, { GalleryShot } from "@/components/ServiceGallery";
 import Solutions from "@/components/Solutions";
 import Outro from "@/components/Outro";
 import Footer from "@/components/Footer";
@@ -16,7 +17,18 @@ export const metadata: Metadata = {
     "Lexma services: real estate photography, drone photo & video, virtual staging, Airbnb and commercial shoots, virtual walkthroughs — plus websites, automation and AI workflows from Lexma Solutions.",
 };
 
-const PHOTO_SERVICES = [
+const PHOTO_SERVICES: {
+  id: string;
+  title: ReactNode;
+  label: string;
+  desc: string;
+  points: string[];
+  img: string;
+  alt: string;
+  img2?: string;
+  alt2?: string;
+  gallery: GalleryShot[];
+}[] = [
   {
     id: "photography",
     title: (
@@ -32,6 +44,15 @@ const PHOTO_SERVICES = [
     ],
     img: "/images/service-01.jpg",
     alt: "Real estate photography by Lexma — Houston property exterior",
+    label: "Real Estate Photography",
+    gallery: [
+      { src: "/images/service-01.jpg", cap: "Front Elevation" },
+      { src: "/images/front/DSC_7060.jpg", cap: "Modern Exterior" },
+      { src: "/images/front/DSC_8695.jpg", cap: "Curb Appeal" },
+      { src: "/images/interior/DSC_5074.jpg", cap: "Grand Entry" },
+      { src: "/images/interior/DSC_5666.jpg", cap: "Kitchen & Dining" },
+      { src: "/images/front/DSC_4235.jpg", cap: "Classic Facade" },
+    ],
   },
   {
     id: "drone",
@@ -48,6 +69,14 @@ const PHOTO_SERVICES = [
     ],
     img: "/images/aerials/DJI_0119.jpg",
     alt: "Aerial drone view of a Houston community with pool and lake",
+    label: "Drone Photo & Video",
+    gallery: [
+      { src: "/images/aerials/DJI_0119.jpg", cap: "Community Aerial" },
+      { src: "/images/aerials/DJI_0092.jpg", cap: "Estate From Above" },
+      { src: "/images/aerials/DJI_0007.jpg", cap: "Neighborhood Context" },
+      { src: "/images/aerials/DJI_0057.jpg", cap: "Lot & Land Coverage" },
+      { src: "/images/houston.jpg", cap: "Downtown Houston" },
+    ],
   },
   {
     id: "staging",
@@ -62,8 +91,19 @@ const PHOTO_SERVICES = [
       "Declutter / photo setup guidance",
       "Natural, realistic results",
     ],
-    img: "/images/interior/DSC_4449.jpg",
-    alt: "Virtually staged living room with fireplace",
+    img: "/images/staging/staging-03.jpg",
+    img2: "/images/staging/staging-05.jpg",
+    alt: "Virtually staged living room — photorealistic furniture rendering",
+    alt2: "Virtually staged bedroom — realistic virtual staging example",
+    label: "Virtual Staging",
+    gallery: [
+      { src: "/images/staging/staging-03.jpg", cap: "Living Room" },
+      { src: "/images/staging/staging-05.jpg", cap: "Bedroom & Workspace" },
+      { src: "/images/staging/staging-01.jpg", cap: "Home Office" },
+      { src: "/images/staging/staging-02.jpg", cap: "Dining Area" },
+      { src: "/images/staging/staging-04.jpg", cap: "Primary Bedroom" },
+      { src: "/images/staging/staging-06.jpg", cap: "Guest Bedroom" },
+    ],
   },
   {
     id: "airbnb",
@@ -78,8 +118,15 @@ const PHOTO_SERVICES = [
       "Office, retail and commercial spaces",
       "Platform-optimized formats",
     ],
-    img: "/images/interior/DSC_6155.jpg",
-    alt: "Airbnb condo interior with downtown Houston view",
+    img: "/images/apt-living.jpg",
+    alt: "Airbnb apartment living area with modern finishes — Houston",
+    label: "Airbnb & Commercial",
+    gallery: [
+      { src: "/images/apt-living.jpg", cap: "Living Area" },
+      { src: "/images/apt-kitchen.jpg", cap: "Designer Kitchen" },
+      { src: "/images/apt-bedroom.jpg", cap: "Guest-Ready Bedroom" },
+      { src: "/images/interior/DSC_6155.jpg", cap: "City-View Condo" },
+    ],
   },
   {
     id: "walkthroughs",
@@ -94,8 +141,15 @@ const PHOTO_SERVICES = [
       "Enhanced listing visual support",
       "Twilight & signature shots available",
     ],
-    img: "/images/front/DSC_3287_Twilight.jpg",
-    alt: "Twilight signature shot of a Houston home",
+    img: "/images/balcony-twilight.jpg",
+    alt: "Signature balcony twilight shot over Houston at dusk",
+    label: "Walkthroughs & Signature Shots",
+    gallery: [
+      { src: "/images/balcony-twilight.jpg", cap: "Balcony Twilight" },
+      { src: "/images/front/DSC_3287_Twilight.jpg", cap: "Twilight Exterior" },
+      { src: "/images/front/DSC_5654---Nightshot.jpg", cap: "Night Signature" },
+      { src: "/images/hero-main.jpg", cap: "Aerial at Dusk" },
+    ],
   },
 ];
 
@@ -127,14 +181,15 @@ export default function ServicesPage() {
                 selector=":scope > *"
                 stagger={0.15}
               >
-                <div className={styles.media}>
-                  <Image
-                    src={s.img}
-                    alt={s.alt}
-                    fill
-                    sizes="(max-width: 860px) 92vw, 46vw"
-                  />
-                </div>
+                <ServiceGallery
+                  img={s.img}
+                  alt={s.alt}
+                  img2={s.img2}
+                  alt2={s.alt2}
+                  shots={s.gallery}
+                  label={s.label}
+                  hint="View Gallery"
+                />
                 <div>
                   <div className={styles.num}>
                     {String(i + 1).padStart(2, "0")} — Photography

@@ -9,13 +9,17 @@ import styles from "./VideoShowcase.module.css";
    Example: "https://www.dropbox.com/s/abc123/tour.mp4?dl=0"
    Leave "" to show the poster with a "coming soon" chip.
 ──────────────────────────────────────────────────────────────── */
-const VIDEO_TOUR_URL = "";
-const SOCIAL_REEL_URL = "";
+const VIDEO_TOUR_URL = "/videos/video-tour.mp4";
+const SOCIAL_REEL_URL = "/videos/social-reel.mp4";
 
 /* Poster images shown before the video plays (swap freely) */
-const VIDEO_TOUR_POSTER = "/images/front/DJI_0019.jpg";
-const SOCIAL_REEL_POSTER = "/images/interior/DSC_6155.jpg";
+const VIDEO_TOUR_POSTER = "/images/tour-poster.jpg";
+const SOCIAL_REEL_POSTER = "/images/reel-poster.jpg";
 const ANIMATED_TOUR_POSTER = "/walkthrough/f001.webp";
+
+/* Houston ambient background (subtle motion behind the section) */
+const HOUSTON_BG_VIDEO = "/videos/houston-bg.mp4";
+const HOUSTON_BG_POSTER = "/images/houston.jpg";
 
 /* Converts a normal Dropbox share link into a direct-stream link */
 const direct = (url: string) =>
@@ -73,6 +77,20 @@ export default function VideoShowcase() {
 
   return (
     <section className={styles.wrap} aria-label="Video production showcase">
+      {/* Houston skyline ambient motion background */}
+      <div className={styles.bg} aria-hidden="true">
+        <video
+          className={styles.bgVideo}
+          src={HOUSTON_BG_VIDEO}
+          poster={HOUSTON_BG_POSTER}
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        <div className={styles.bgShade} />
+      </div>
+
       <div className="container">
         <Reveal className={styles.head} selector=":scope > *" stagger={0.12}>
           <div className={styles.kicker}>{v.kicker}</div>

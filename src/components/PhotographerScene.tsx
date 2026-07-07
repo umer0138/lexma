@@ -21,7 +21,7 @@ const POSES = {
 const SHOT_MEDIA = [
   { img: "/images/front/DSC_3902.jpg", x: 62, y: 4, rot: 5 },
   { img: "/images/aerials/DJI_0119.jpg", x: 74, y: -6, rot: -6 },
-  { img: "/images/interior/DSC_4449.jpg", x: 86, y: 2, rot: 8 },
+  { img: "/images/apt-kitchen.jpg", x: 86, y: 2, rot: 8 },
 ];
 
 // scene phases (scroll progress fractions)

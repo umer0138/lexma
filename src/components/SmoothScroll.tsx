@@ -20,6 +20,8 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
     });
 
     lenis.on("scroll", ScrollTrigger.update);
+    // expose so overlays (e.g. the service lightbox) can pause page scroll
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
 
     const raf = (time: number) => {
       lenis.raf(time * 1000);
