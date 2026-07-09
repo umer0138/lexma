@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Reveal from "@/components/Reveal";
 import { useLang } from "@/lib/i18n";
 import styles from "./VideoShowcase.module.css";
@@ -27,6 +28,40 @@ const direct = (url: string) =>
     .replace("www.dropbox.com", "dl.dropboxusercontent.com")
     .replace(/([?&])dl=0/, "$1raw=1");
 
+/* Ambient bg video that only downloads once the section approaches the viewport */
+function LazyBgVideo({ src, poster }: { src: string; poster: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          video.src = src;
+          video.play().catch(() => {});
+          io.disconnect();
+        }
+      },
+      { rootMargin: "600px" }
+    );
+    io.observe(video);
+    return () => io.disconnect();
+  }, [src]);
+
+  return (
+    <video
+      ref={ref}
+      className={styles.bgVideo}
+      poster={poster}
+      muted
+      loop
+      playsInline
+      preload="none"
+    />
+  );
+}
+
 function PlayerOrPoster({
   url,
   poster,
@@ -46,7 +81,7 @@ function PlayerOrPoster({
         poster={poster}
         controls
         playsInline
-        preload="metadata"
+        preload="none"
       />
     );
   }
@@ -77,17 +112,9 @@ export default function VideoShowcase() {
 
   return (
     <section className={styles.wrap} aria-label="Video production showcase">
-      {/* Houston skyline ambient motion background */}
+      {/* Houston skyline ambient motion background (lazy: loads near viewport) */}
       <div className={styles.bg} aria-hidden="true">
-        <video
-          className={styles.bgVideo}
-          src={HOUSTON_BG_VIDEO}
-          poster={HOUSTON_BG_POSTER}
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <LazyBgVideo src={HOUSTON_BG_VIDEO} poster={HOUSTON_BG_POSTER} />
         <div className={styles.bgShade} />
       </div>
 

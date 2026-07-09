@@ -10,12 +10,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const WALK = Array.from({ length: 8 }, (_, i) => `/avatar/walk/walk-${String(i + 1).padStart(2, "0")}.webp`);
 const POSES = {
-  lift: "/avatar/pose-02.png",
-  shoot: "/avatar/pose-03.png",
-  shoot2: "/avatar/pose-04.png",
-  lower: "/avatar/pose-05.png",
-  thumbs: "/avatar/pose-11.png",
-  wave: "/avatar/pose-12.png",
+  lift: "/avatar/pose-02.webp",
+  shoot: "/avatar/pose-03.webp",
+  shoot2: "/avatar/pose-04.webp",
+  lower: "/avatar/pose-05.webp",
+  thumbs: "/avatar/pose-11.webp",
+  wave: "/avatar/pose-12.webp",
 };
 
 const SHOT_MEDIA = [
