@@ -50,7 +50,7 @@ const PHOTO_SERVICES: {
       { src: "/images/front/DSC_7060.jpg", cap: "Modern Exterior" },
       { src: "/images/front/DSC_8695.jpg", cap: "Curb Appeal" },
       { src: "/images/interior/DSC_5074.jpg", cap: "Grand Entry" },
-      { src: "/images/interior/DSC_5666.jpg", cap: "Kitchen & Dining" },
+      { src: "/images/interior/DSC_5666.jpg", cap: "Family Room" },
       { src: "/images/front/DSC_4235.jpg", cap: "Classic Facade" },
     ],
   },

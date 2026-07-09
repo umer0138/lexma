@@ -12,11 +12,11 @@ gsap.registerPlugin(ScrollTrigger);
 const SHOTS = [
   { img: "/images/interior/DSC_5074.jpg", cap: "Grand Entry", tag: "Interior" },
   { img: "/images/interior/DSC_4449.jpg", cap: "Social Area", tag: "Interior" },
-  { img: "/images/interior/DSC_5666.jpg", cap: "Kitchen & Dining", tag: "Interior" },
-  { img: "/images/interior/DSC_7896-V1.jpg", cap: "Primary Suite", tag: "Interior" },
+  { img: "/images/interior/DSC_5666.jpg", cap: "Family Room", tag: "Interior" },
+  { img: "/images/interior/DSC_7896-V1.jpg", cap: "Living Room", tag: "Interior" },
   { img: "/images/interior/DSC_6155.jpg", cap: "City-View Condo", tag: "Airbnb" },
-  { img: "/images/interior/DSC_8740.jpg", cap: "Family Room", tag: "Interior" },
-  { img: "/images/interior/DSC_3494.jpg", cap: "Bedroom Suite", tag: "Interior" },
+  { img: "/images/interior/DSC_8740.jpg", cap: "Backyard", tag: "Exterior" },
+  { img: "/images/interior/DSC_3494.jpg", cap: "Outdoor Living", tag: "Exterior" },
 ];
 
 export default function InteriorStrip() {

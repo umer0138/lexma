@@ -19,9 +19,9 @@ const POSES = {
 };
 
 const SHOT_MEDIA = [
-  { img: "/images/front/DSC_3902.jpg", x: 62, y: 4, rot: 5 },
-  { img: "/images/aerials/DJI_0119.jpg", x: 74, y: -6, rot: -6 },
-  { img: "/images/apt-kitchen.jpg", x: 86, y: 2, rot: 8 },
+  { img: "/images/front/DSC_3902.jpg", x: 50, y: 4, rot: 5 },
+  { img: "/images/aerials/DJI_0119.jpg", x: 63, y: -7, rot: -6 },
+  { img: "/images/apt-kitchen.jpg", x: 75, y: 2, rot: 8 },
 ];
 
 // scene phases (scroll progress fractions)
@@ -168,7 +168,7 @@ export default function PhotographerScene() {
         {SHOTS.map((s, i) => (
           <div
             key={s.img}
-            className={styles.polaroid}
+            className={`${styles.polaroid} ${styles[`p${i}`]}`}
             style={{ left: `${s.x}vw`, bottom: `${46 + s.y}vh` }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -103,7 +103,7 @@ const EN = {
         desc: "Vertical, fast-cut clips built for Instagram, TikTok and Facebook — where buyers scroll first.",
       },
       animated: {
-        label: "Animated Tour / Virtual Walkthrough",
+        label: "360 Tour",
         desc: "An interactive room-to-room journey you control with your scroll — try it below.",
         cta: "Experience it",
       },
@@ -309,7 +309,7 @@ const ES: Dict = {
         desc: "Clips verticales y dinámicos para Instagram, TikTok y Facebook — donde los compradores miran primero.",
       },
       animated: {
-        label: "Tour Animado / Recorrido Virtual",
+        label: "Tour 360",
         desc: "Un recorrido interactivo habitación por habitación que controlas con tu scroll — pruébalo abajo.",
         cta: "Vívelo",
       },

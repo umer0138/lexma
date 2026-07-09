@@ -103,8 +103,8 @@
   position: absolute;
   left: 38vw;
   bottom: 46vh;
-  width: clamp(150px, 17vw, 280px);
-  padding: 8px 8px 34px;
+  width: clamp(190px, 22vw, 370px);
+  padding: 8px 8px 38px;
   background: #f7f3ea;
   border-radius: 6px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
@@ -155,7 +155,19 @@
     height: clamp(220px, 36vh, 360px);
   }
   .polaroid {
-    width: clamp(120px, 30vw, 190px);
-    bottom: 52vh;
+    width: clamp(150px, 38vw, 240px);
+  }
+  /* reposition: keep the larger cards on screen and clear of the character's face */
+  .p0 {
+    left: 3vw !important;
+    bottom: 54vh !important;
+  }
+  .p1 {
+    left: 35vw !important;
+    bottom: 62vh !important;
+  }
+  .p2 {
+    left: 60vw !important;
+    bottom: 54vh !important;
   }
 }
