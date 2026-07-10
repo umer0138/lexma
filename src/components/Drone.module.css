@@ -13,7 +13,7 @@
 
 .bg {
   position: absolute;
-  inset: -12% 0;
+  inset: -5% 0;
   will-change: transform;
 }
 

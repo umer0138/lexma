@@ -76,7 +76,7 @@ function PlayerOrPoster({
   if (url) {
     return (
       <video
-        className={styles.video}
+        className={`${styles.video} ${vertical ? styles.contain : ""}`}
         src={direct(url)}
         poster={poster}
         controls
@@ -86,7 +86,7 @@ function PlayerOrPoster({
     );
   }
   return (
-    <div className={styles.poster}>
+    <div className={`${styles.poster} ${vertical ? styles.containPoster : ""}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={poster} alt="" loading="lazy" />
       <div className={styles.playBadge} aria-hidden="true">

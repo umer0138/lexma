@@ -21,6 +21,7 @@ export default function ServiceGallery({
   shots,
   label,
   hint,
+  gridAll,
 }: {
   img: string;
   alt: string;
@@ -29,12 +30,27 @@ export default function ServiceGallery({
   shots: GalleryShot[];
   label: string;
   hint: string;
+  /** show every gallery shot as a clickable grid (e.g. all 6 staging examples) */
+  gridAll?: boolean;
 }) {
   const [openAt, setOpenAt] = useState<number | null>(null);
 
   return (
     <>
-      {img2 ? (
+      {gridAll ? (
+        <div className={styles.gridAll}>
+          {shots.map((s, i) => (
+            <MediaButton
+              key={s.src}
+              img={s.src}
+              alt={s.cap}
+              hint={hint}
+              onOpen={() => setOpenAt(i)}
+              cell
+            />
+          ))}
+        </div>
+      ) : img2 ? (
         <div className={styles.stack}>
           <MediaButton img={img} alt={alt} hint={hint} onOpen={() => setOpenAt(0)} wide />
           <MediaButton img={img2} alt={alt2 ?? alt} hint={hint} onOpen={() => setOpenAt(1)} wide />
@@ -61,17 +77,19 @@ function MediaButton({
   hint,
   onOpen,
   wide,
+  cell,
 }: {
   img: string;
   alt: string;
   hint: string;
   onOpen: () => void;
   wide?: boolean;
+  cell?: boolean;
 }) {
   return (
     <button
       type="button"
-      className={`${styles.media} ${wide ? styles.mediaWide : ""}`}
+      className={`${styles.media} ${wide ? styles.mediaWide : ""} ${cell ? styles.mediaCell : ""}`}
       onClick={onOpen}
       aria-label={`${alt} — ${hint}`}
     >

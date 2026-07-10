@@ -22,6 +22,26 @@
   aspect-ratio: 16 / 9;
 }
 
+/* all-shots grid (e.g. the 6 virtual staging examples) */
+.gridAll {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.mediaCell {
+  aspect-ratio: 16 / 11;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.mediaCell .hintChip {
+  padding: 6px 11px;
+  font-size: 9.5px;
+  left: 10px;
+  bottom: 10px;
+}
+
 .media img {
   object-fit: cover;
   transition: transform 0.9s var(--ease-out-expo);

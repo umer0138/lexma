@@ -162,8 +162,8 @@ const EN = {
   },
   outro: {
     kicker: "Greater Houston Area",
-    titlePre: "Ready to make your listing ",
-    titleEm: "move?",
+    titlePre: "Let's show off ",
+    titleEm: "your property.",
     sub: "Tell us about your property or project — we'll reply with a custom quote. Fast turnaround, no obligations.",
     ctaQuote: "Request a Quote",
     ctaWhats: "Text or WhatsApp Us",
@@ -368,8 +368,8 @@ const ES: Dict = {
   },
   outro: {
     kicker: "Área Metropolitana de Houston",
-    titlePre: "¿Listo para hacer mover ",
-    titleEm: "tu propiedad?",
+    titlePre: "Hagamos lucir ",
+    titleEm: "tu propiedad.",
     sub: "Cuéntanos sobre tu propiedad o proyecto — te responderemos con una cotización a tu medida. Respuesta rápida, sin compromiso.",
     ctaQuote: "Pedir Cotización",
     ctaWhats: "Mensaje de Texto o WhatsApp",

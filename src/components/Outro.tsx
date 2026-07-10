@@ -20,9 +20,9 @@ export default function Outro() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         `.${styles.bg}`,
-        { yPercent: -7 },
+        { yPercent: -3 },
         {
-          yPercent: 7,
+          yPercent: 3,
           ease: "none",
           scrollTrigger: {
             trigger: root,
@@ -49,8 +49,8 @@ export default function Outro() {
     <section ref={rootRef} className={styles.outro}>
       <div className={styles.bg}>
         <Image
-          src="/images/front/DJI_0168.jpg"
-          alt="Aerial front view of a Houston home photographed by Lexma"
+          src="/images/houston.jpg"
+          alt="Downtown Houston skyline photographed from the air by Lexma"
           fill
           sizes="100vw"
         />

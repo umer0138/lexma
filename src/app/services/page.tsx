@@ -27,6 +27,7 @@ const PHOTO_SERVICES: {
   alt: string;
   img2?: string;
   alt2?: string;
+  gridAll?: boolean;
   gallery: GalleryShot[];
 }[] = [
   {
@@ -96,6 +97,7 @@ const PHOTO_SERVICES: {
     alt: "Virtually staged living room — photorealistic furniture rendering",
     alt2: "Virtually staged bedroom — realistic virtual staging example",
     label: "Virtual Staging",
+    gridAll: true,
     gallery: [
       { src: "/images/staging/staging-03.jpg", cap: "Living Room" },
       { src: "/images/staging/staging-05.jpg", cap: "Bedroom & Workspace" },
@@ -189,6 +191,7 @@ export default function ServicesPage() {
                   shots={s.gallery}
                   label={s.label}
                   hint="View Gallery"
+                  gridAll={s.gridAll}
                 />
                 <div>
                   <div className={styles.num}>

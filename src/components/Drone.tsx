@@ -33,9 +33,9 @@ export default function Drone() {
       // background slow pan (drone glide feel)
       gsap.fromTo(
         `.${styles.bg}`,
-        { yPercent: -6 },
+        { yPercent: -3 },
         {
-          yPercent: 6,
+          yPercent: 3,
           ease: "none",
           scrollTrigger: {
             trigger: root,
@@ -107,8 +107,8 @@ export default function Drone() {
       <div className={styles.sticky}>
         <div className={styles.bg}>
           <Image
-            src="/images/aerials/DJI_0040.jpg"
-            alt="Aerial drone view of Houston community resort pool by Lexma"
+            src="/images/front/DJI_0168.jpg"
+            alt="Aerial front view of a white Houston home photographed by Lexma drone"
             fill
             sizes="100vw"
           />

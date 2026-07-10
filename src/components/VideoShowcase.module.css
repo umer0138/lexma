@@ -121,6 +121,17 @@
   display: block;
 }
 
+/* vertical reel: show the FULL frame so on-screen text (address) is never cut */
+.contain {
+  object-fit: contain;
+  background: #000;
+}
+
+.containPoster img {
+  object-fit: contain !important;
+  background: #000;
+}
+
 .poster img {
   width: 100%;
   height: 100%;
