@@ -20,8 +20,8 @@ const MEDIA = [
     alt: "Lexma drone aerial photography — community pool and lake",
   },
   {
-    img: "/images/interior/DSC_4441.jpg",
-    alt: "Lexma virtual staging — styled living room",
+    img: "/images/staging/staging-02.jpg",
+    alt: "Lexma virtual staging — virtually staged dining area",
   },
   {
     img: "/images/interior/DSC_6155.jpg",

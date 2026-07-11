@@ -151,16 +151,18 @@ export default function PhotographerScene() {
         </div>
 
         <div ref={figureRef} className={styles.figure}>
+          {/* frames load eagerly — lazy-loading images inside hidden frames is
+              unreliable across browsers and can leave the character invisible */}
           {WALK.map((src, i) => (
             <div key={src} className={styles.frame} data-key={`w${i}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={src} alt="" loading="lazy" />
+              <img src={src} alt="" />
             </div>
           ))}
           {Object.entries(POSES).map(([key, src]) => (
             <div key={key} className={styles.frame} data-key={key}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={src} alt="" loading="lazy" />
+              <img src={src} alt="" />
             </div>
           ))}
         </div>
