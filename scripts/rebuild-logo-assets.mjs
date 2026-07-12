@@ -4,7 +4,7 @@
 import sharp from 'sharp';
 import { writeFile } from 'fs/promises';
 
-const SRC_JPG = 'B:/MAIRA-website/WhatsApp Image 2026-06-10 at 3.07.04 PM (1).jpeg';
+const SRC_JPG = 'C:/Users/Hassaan Ali/Downloads/WhatsApp Image 2026-07-12 at 6.36.52 AM.jpeg';
 
 const { data, info } = await sharp(SRC_JPG)
   .ensureAlpha()
