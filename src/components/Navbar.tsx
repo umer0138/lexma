@@ -30,10 +30,10 @@ export default function Navbar() {
       <div className={styles.inner}>
         <Link href="/" className={styles.brand} aria-label="Lexma home">
           <Image
-            src="/brand/lexma-logo-dark.png"
+            src="/brand/lexma-logo-badge.png"
             alt="Lexma Real Estate Photography"
-            width={100}
-            height={70}
+            width={80}
+            height={80}
             className={styles.mark}
             priority
           />

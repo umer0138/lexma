@@ -65,10 +65,10 @@ export default function Preloader() {
           />
         </svg>
         <Image
-          src="/brand/lexma-logo-dark.png"
+          src="/brand/lexma-logo-badge.png"
           alt=""
           width={300}
-          height={211}
+          height={300}
           className={styles.logo}
           priority
         />
