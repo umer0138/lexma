@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +23,7 @@ export default function Footer() {
         <div className={styles.marqueeTrack}>
           {items.map((m, i) => (
             <span key={i}>
-              {m} <b>✦</b>
+              {m} <b>âœ¦</b>
             </span>
           ))}
         </div>
@@ -33,7 +33,7 @@ export default function Footer() {
         <div className={styles.grid}>
           <div className={styles.brandCol}>
             <Image
-              src="/brand/lexma-logo-badge.png"
+              src="/brand/lexma-badge-v2.png"
               alt="Lexma Real Estate Photography"
               width={190}
               height={190}
@@ -76,9 +76,9 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <span>
-            © {new Date().getFullYear()} Lexma. {t.footer.rights}
+            Â© {new Date().getFullYear()} Lexma. {t.footer.rights}
           </span>
-          <span>Lexma Real Estate Photography · Lexma Solutions</span>
+          <span>Lexma Real Estate Photography Â· Lexma Solutions</span>
         </div>
       </div>
     </footer>

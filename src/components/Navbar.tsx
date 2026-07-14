@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -30,7 +30,7 @@ export default function Navbar() {
       <div className={styles.inner}>
         <Link href="/" className={styles.brand} aria-label="Lexma home">
           <Image
-            src="/brand/lexma-logo-badge.png"
+            src="/brand/lexma-badge-v2.png"
             alt="Lexma Real Estate Photography"
             width={80}
             height={80}
@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className={styles.right}>
           <button
             className={styles.lang}
-            aria-label={lang === "en" ? "Cambiar a Español" : "Switch to English"}
+            aria-label={lang === "en" ? "Cambiar a EspaÃ±ol" : "Switch to English"}
             onClick={() => setLang(lang === "en" ? "es" : "en")}
           >
             {lang === "en" ? "ES" : "EN"}

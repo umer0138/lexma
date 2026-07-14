@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -65,7 +65,7 @@ export default function Preloader() {
           />
         </svg>
         <Image
-          src="/brand/lexma-logo-badge.png"
+          src="/brand/lexma-badge-v2.png"
           alt=""
           width={300}
           height={300}
